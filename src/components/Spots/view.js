@@ -1,13 +1,22 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 import styles from './styles';
+import SpotCard from './components/SpotCard';
 
-const SpotsView = props => {
+const SpotsView = ({ spots, goToSpot }) => {
   return (
     <View style={styles.container}>
-      <Text>
-        Screen
-      </Text>
+      <FlatList
+        data={spots}
+        keyExtractor={post => post._id}
+        showsVerticalScrollIndicator={false}
+        renderItem={s => (
+          <SpotCard
+            spot={s.item}
+            goToSpot={goToSpot}
+          />
+        )}
+      />
     </View>
   );
 };

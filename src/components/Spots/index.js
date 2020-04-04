@@ -1,15 +1,18 @@
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import View from './view';
 
 const Spots = props => {
-  useEffect(() => {
-    async function getSpots() {
-      
-    }
-  });
+  const spots = useSelector(state => state.spots.spots);
+  function goToSpot() {
+
+  }
 
   return (
-    <View />
+    <View
+      spots={spots}
+      gotToSpot={goToSpot}
+    />
   );
 };
 

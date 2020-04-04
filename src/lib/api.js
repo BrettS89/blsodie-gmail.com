@@ -46,3 +46,17 @@ export async function isLoggedIn() {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function getSpots(data) {
+  const res = await fetch(`${URI}/location/get`);
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getOneSpot(id) {
+  const res = await fetch(`${URI}/company/getone/${id}`);
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
