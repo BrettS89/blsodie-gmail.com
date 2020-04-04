@@ -4,11 +4,15 @@ import { Provider } from 'react-redux';
 import store from './src/redux';
 import Navigation from './src/navigation';
 
+// Modals
+import LoadingModal from './src/shared/components/LoadingModal';
+
 export default function App() {
   return (
     <Provider store={store()}>
       <View style={styles.container}>
         <Navigation />
+        <LoadingModal />
       </View>
     </Provider>
   );

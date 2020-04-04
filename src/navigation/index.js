@@ -7,9 +7,21 @@ import {
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createStackNavigator } from 'react-navigation-stack';
 import Colors from '../shared/styles/colors';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 
+// Logo
+import Logo from '../shared/components/Logo';
+
+// Main nav
 import Spots from '../components/Spots';
+import Account from '../components/Account';
+import UseSubscriptions from '../components/UseSubscriptions';
+
+// No bottom tab nav
+import Login from '../components/Login';
+import Register from '../components/Register';
+
 
 const mainNav = createBottomTabNavigator({
   Spots: {
@@ -17,16 +29,55 @@ const mainNav = createBottomTabNavigator({
       Spots: {
         screen: Spots,
         navigationOptions: {
-          headerLeft: <View><Text>Paradyse</Text></View>,
-          headerRight: <View><Text>Right</Text></View>,
+          headerLeft: () => <Logo />,
+          headerRight: () => <View><Text>Right</Text></View>,
+          headerTitle: () => null,
         },
       },
     }),
     navigationOptions: {
-      title: 'Spots',
+      title: 'Find Spots',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon2 name="map-search-outline" size={28} color={tintColor}/>
+        <Icon name="search" size={24} color={tintColor}/>
+      )
+    }
+  },
+  UseSubscriptions: {
+    screen: createStackNavigator({
+      UseSubscriptions: {
+        screen: UseSubscriptions,
+        navigationOptions: {
+          headerLeft: () => <Logo />,
+          headerRight: () => <View><Text>Right</Text></View>,
+          headerTitle: () => null,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Subscriptions',
+      activeTintColor: Colors.main,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon name="store" size={23} color={tintColor}/>
+      )
+    }
+  },
+  Account: {
+    screen: createStackNavigator({
+      Account: {
+        screen: Account,
+        navigationOptions: {
+          headerLeft: () => <Logo />,
+          headerRight: () => <View><Text>Right</Text></View>,
+          headerTitle: () => null,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Account',
+      activeTintColor: Colors.main,
+      tabBarIcon: ({ tintColor }) => (
+        <Icon2 name="account-circle" size={30} color={tintColor}/>
       )
     }
   },
@@ -41,12 +92,28 @@ const mainNav = createBottomTabNavigator({
   },
 });
 
+const noBottomNav = createBottomTabNavigator({
+  Login: {
+    screen: Login,
+  },
+  Register: {
+    screen: Register,
+  },
+},
+{
+  tabBarOptions: {
+    activeTintColor: Colors.main,
+    style: {
+      display: 'none'
+    }
+  },
+});
+
 const rootNavigator = createSwitchNavigator({
-  // Auth: authNav,
-  // NoBottomNav: noBottomNav,
+  NoBottomNav: noBottomNav,
   Main: mainNav,
 }, {
-  initialRouteName: 'Main',
+  initialRouteName: 'NoBottomNav',
 });
 
 export default createAppContainer(rootNavigator);

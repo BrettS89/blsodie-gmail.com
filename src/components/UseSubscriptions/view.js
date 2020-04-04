@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
-const View = props => {
+const UseSubscriptionsView = props => {
   return (
     <View style={styles.container}>
       <Text>
-        Screen
+        Use subscriptions
       </Text>
     </View>
   );
 };
 
-export default View;
+export default UseSubscriptionsView;

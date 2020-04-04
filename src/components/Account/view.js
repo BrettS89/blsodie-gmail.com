@@ -2,14 +2,14 @@ import React from 'react';
 import { View, Text } from 'react-native';
 import styles from './styles';
 
-const View = props => {
+const AccountView = props => {
   return (
     <View style={styles.container}>
       <Text>
-        Screen
+        Account
       </Text>
     </View>
   );
 };
 
-export default View;
+export default AccountView;
