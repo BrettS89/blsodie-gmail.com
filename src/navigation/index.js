@@ -15,6 +15,7 @@ import Logo from '../shared/components/Logo';
 
 // Main nav
 import Spots from '../components/Spots';
+import Spot from '../components/Spot';
 import Account from '../components/Account';
 import UseSubscriptions from '../components/UseSubscriptions';
 
@@ -27,10 +28,35 @@ import Auth from '../components/Auth';
 
 
 const mainNav = createBottomTabNavigator({
+  // Spot: {
+  //   screen: createStackNavigator({
+  //     Spot: {
+  //       screen: Spot,
+  //       navigationOptions: {
+  //         headerLeft: () => <Logo />,
+  //         headerRight: () => <View><Text>Right</Text></View>,
+  //         headerTitle: () => null,
+  //       },
+  //     },
+  //   }),
+  //   navigationOptions: {
+  //     // tabBarIcon: ({ tintColor }) => (
+  //     //   <Icon name="search" size={24} color={tintColor}/>
+  //     // )
+  //   },
+  // },
   Spots: {
     screen: createStackNavigator({
       Spots: {
         screen: Spots,
+        navigationOptions: {
+          headerLeft: () => <Logo />,
+          headerRight: () => <View><Text>Right</Text></View>,
+          headerTitle: () => null,
+        },
+      },
+      Spot: {
+        screen: Spot,
         navigationOptions: {
           headerLeft: () => <Logo />,
           headerRight: () => <View><Text>Right</Text></View>,

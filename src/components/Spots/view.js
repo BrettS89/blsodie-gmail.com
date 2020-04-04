@@ -8,7 +8,7 @@ const SpotsView = ({ spots, goToSpot }) => {
     <View style={styles.container}>
       <FlatList
         data={spots}
-        keyExtractor={post => post._id}
+        keyExtractor={spot => spot._id}
         showsVerticalScrollIndicator={false}
         renderItem={s => (
           <SpotCard
