@@ -8,7 +8,12 @@ import * as api from '../../lib/api';
 export default [
   registerWatcher,
   loginWatcher,
+  isLoggedInWatcher,
 ];
+
+function * isLoggedInWatcher() {
+  yield takeLatest(actions.CHECK_IS_LOGGED_IN, isLoggedInHandler)
+}
 
 function * registerWatcher() {
   yield takeLatest(actions.ON_REGISTER, registerHandler);
@@ -16,6 +21,18 @@ function * registerWatcher() {
 
 function * loginWatcher() {
   yield takeLatest(actions.ON_LOGIN, loginHandler);
+}
+
+function * isLoggedInHandler({ payload }) {
+  try {
+    const { user } = yield call(api.isLoggedIn);
+    yield put({ type: actions.SET_USER_DATA, payload: user });
+    payload('success');
+  } catch(e) {
+    payload('failure');
+    yield AsyncStorage.clear();
+    console.log('isLoggedInHandler error', e);
+  }
 }
 
 function * registerHandler({ payload: { form, navigate } }) {

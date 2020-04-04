@@ -22,6 +22,9 @@ import UseSubscriptions from '../components/UseSubscriptions';
 import Login from '../components/Login';
 import Register from '../components/Register';
 
+// Auth nav
+import Auth from '../components/Auth';
+
 
 const mainNav = createBottomTabNavigator({
   Spots: {
@@ -109,11 +112,26 @@ const noBottomNav = createBottomTabNavigator({
   },
 });
 
+const authNav = createBottomTabNavigator({
+  Auth: {
+    screen: Auth,
+  },
+},
+{
+  tabBarOptions: {
+    activeTintColor: Colors.main,
+    style: {
+      display: 'none'
+    }
+  },
+});
+
 const rootNavigator = createSwitchNavigator({
+  AuthNav: authNav,
   NoBottomNav: noBottomNav,
   Main: mainNav,
 }, {
-  initialRouteName: 'NoBottomNav',
+  initialRouteName: 'AuthNav',
 });
 
 export default createAppContainer(rootNavigator);
