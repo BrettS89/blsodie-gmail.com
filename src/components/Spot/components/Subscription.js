@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles';
 
-const Subscription = ({ sub }) => {
+const Subscription = ({ sub, selectSubscription }) => {
   function renderItems() {
     return sub.plan.map(i => {
       return (
@@ -32,9 +32,7 @@ const Subscription = ({ sub }) => {
         {renderItems()}
       </View>
 
-      <TouchableOpacity
-        
-      >
+      <TouchableOpacity onPress={() => selectSubscription(sub)}>
         <Text style={styles.subscribeButtonText}>
           Subscribe
         </Text>

@@ -3,11 +3,15 @@ import { View, ScrollView, Text, TouchableOpacity, Image, FlatList } from 'react
 import styles from './styles';
 import Subscription from './components/Subscription';
 
-const SpotView = ({ spot }) => {
+const SpotView = ({ spot, selectSubscription }) => {
   function renderSubscriptions() {
     return spot.subscriptions.map(s => {
       return (
-        <Subscription sub={s} key={s._id} />
+        <Subscription
+          sub={s}
+          key={s._id}
+          selectSubscription={selectSubscription}
+        />
       );
     });
   }
@@ -22,16 +26,6 @@ const SpotView = ({ spot }) => {
         Subscriptions
       </Text>
       {renderSubscriptions()}
-      {/* <FlatList
-        data={spot.subscriptions}
-        keyExtractor={sub => sub._id}
-        showsVerticalScrollIndicator={false}
-        renderItem={s => (
-          <Subscription
-            sub={s.item}
-          />
-        )}
-      /> */}
     </ScrollView>
   );
 };

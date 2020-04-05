@@ -60,3 +60,35 @@ export async function getOneSpot(id) {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function getSubscription(id) {
+  const res = await fetch(`${URI}/subscription/get/${id}`);
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function subscribe(body) {
+  const res = await fetch(`${URI}/usersubscription/create`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': await getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getCredits() {
+  const res = await fetch(`${URI}/credit/get`, {
+    headers: {
+      'authorization': await getToken(),
+    }
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}

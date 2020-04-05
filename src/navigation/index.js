@@ -9,13 +9,16 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Colors from '../shared/styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
+import screenTitleStyle from '../shared/styles/screenTitle';
 
 // Logo
 import Logo from '../shared/components/Logo';
+import HeaderBack from '../shared/components/HeaderBack';
 
 // Main nav
 import Spots from '../components/Spots';
 import Spot from '../components/Spot';
+import ConfirmSubscription from '../components/ConfirmSubscription';
 import Account from '../components/Account';
 import UseSubscriptions from '../components/UseSubscriptions';
 
@@ -28,30 +31,13 @@ import Auth from '../components/Auth';
 
 
 const mainNav = createBottomTabNavigator({
-  // Spot: {
-  //   screen: createStackNavigator({
-  //     Spot: {
-  //       screen: Spot,
-  //       navigationOptions: {
-  //         headerLeft: () => <Logo />,
-  //         headerRight: () => <View><Text>Right</Text></View>,
-  //         headerTitle: () => null,
-  //       },
-  //     },
-  //   }),
-  //   navigationOptions: {
-  //     // tabBarIcon: ({ tintColor }) => (
-  //     //   <Icon name="search" size={24} color={tintColor}/>
-  //     // )
-  //   },
-  // },
   Spots: {
     screen: createStackNavigator({
       Spots: {
         screen: Spots,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          headerRight: () => <View><Text>Right</Text></View>,
+          headerRight: () => null,
           headerTitle: () => null,
         },
       },
@@ -59,7 +45,7 @@ const mainNav = createBottomTabNavigator({
         screen: Spot,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          headerRight: () => <View><Text>Right</Text></View>,
+          headerRight: () => null,
           headerTitle: () => null,
         },
       },
@@ -72,9 +58,9 @@ const mainNav = createBottomTabNavigator({
       )
     }
   },
-  UseSubscriptions: {
+  Subscriptions: {
     screen: createStackNavigator({
-      UseSubscriptions: {
+      Subscriptions: {
         screen: UseSubscriptions,
         navigationOptions: {
           headerLeft: () => <Logo />,
@@ -127,6 +113,22 @@ const noBottomNav = createBottomTabNavigator({
   },
   Register: {
     screen: Register,
+  },
+  ConfirmSubscription: {
+    screen: createStackNavigator({
+      ConfirmSubscription: {
+        screen: ConfirmSubscription,
+        title: 'Confirm Subscription',
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Spot'} />,
+          // headerRight: () => <View><Text>Right</Text></View>,
+          headerTitle: () => <View><Text style={screenTitleStyle.text}>Confirm Subscription</Text></View>,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'ConfirmSubscription',
+    }
   },
 },
 {

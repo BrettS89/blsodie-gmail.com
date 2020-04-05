@@ -44,7 +44,7 @@ export default StyleSheet.create({
   },
   items: {
     paddingHorizontal: 15,
-    marginBottom: 10,
+    marginBottom: 9,
   },
   itemRow: {
     flexDirection: 'row',
