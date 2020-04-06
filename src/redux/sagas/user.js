@@ -27,6 +27,7 @@ function * isLoggedInHandler({ payload }) {
   try {
     const { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
+    yield put({ type: actions.GET_CREDITS });
     const { locations } = yield call(api.getSpots, {});
     yield put({ type: actions.SET_SPOTS, payload: locations });
     payload('success');
@@ -61,7 +62,7 @@ function * loginHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.SET_LOGIN_ERROR, payload: null });
     const { token, user } = yield call(api.login, form);
     AsyncStorage.setItem('token', token);
-    // yield put({ type: actions.GET_CREDITS });
+    yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.SET_USER_DATA, payload: user });
     const { locations } = yield call(api.getSpots, {});
     yield put({ type: actions.SET_SPOTS, payload: locations });

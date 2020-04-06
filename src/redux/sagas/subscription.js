@@ -12,12 +12,16 @@ export default [
   subscribeWatcher,
   // getUserSubscriptionsWatcher,
   // cancelUserSubscriptionWatcher,
-  // getCreditsWatcher,
+  getCreditsWatcher,
   // useCreditWatcher,
 ];
 
 function * subscribeWatcher() {
   yield takeLatest(actions.SUBSCRIBE, subscribeHandler);
+}
+
+function * getCreditsWatcher() {
+  yield takeLatest(actions.GET_CREDITS, getCreditsHandler);
 }
 
 function * subscribeHandler({ payload: { data, navigate } }) {
@@ -40,5 +44,14 @@ function * subscribeHandler({ payload: { data, navigate } }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     console.log('subscribeHandler error: ', e);
     dalert('Error', e.message);
+  }
+}
+
+function * getCreditsHandler() {
+  try {
+    const { subscriptions } = yield call(api.getCredits);
+    yield put({ type: actions.SET_CREDITS, payload: subscriptions });
+  } catch(e) {
+    console.log('getCreditsHandler error: ', e);
   }
 }

@@ -64,7 +64,7 @@ const mainNav = createBottomTabNavigator({
         screen: UseSubscriptions,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          headerRight: () => <View><Text>Right</Text></View>,
+          headerRight: () => null,
           headerTitle: () => null,
         },
       },
@@ -83,7 +83,7 @@ const mainNav = createBottomTabNavigator({
         screen: Account,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          headerRight: () => <View><Text>Right</Text></View>,
+          headerRight: () => null,
           headerTitle: () => null,
         },
       },
@@ -121,7 +121,7 @@ const noBottomNav = createBottomTabNavigator({
         title: 'Confirm Subscription',
         navigationOptions: {
           headerLeft: () => <HeaderBack screen={'Spot'} />,
-          // headerRight: () => <View><Text>Right</Text></View>,
+          headerRight: () => null,
           headerTitle: () => <View><Text style={screenTitleStyle.text}>Confirm Subscription</Text></View>,
         },
       },
