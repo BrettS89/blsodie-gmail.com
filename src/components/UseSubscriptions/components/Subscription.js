@@ -10,6 +10,7 @@ const Subscription = ({ sub, openModal }) => {
         key={i._id}
         item={i}
         openModal={openModal}
+        subscriptionName={sub.name}
       />
     ));
   }

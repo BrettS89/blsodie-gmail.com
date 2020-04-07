@@ -4,7 +4,7 @@ import styles from './styles';
 import Subscription from './components/Subscription';
 import UseCreditModal from './components/UseCreditModal';
 
-const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen }) => {
+const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen, useCredit }) => {
   function renderSubscriptions() {
     return subs.map(s => (
       <Subscription
@@ -31,6 +31,7 @@ const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen }) => {
       <UseCreditModal
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}
+        useCredit={useCredit}
       />
     </ScrollView>
   );

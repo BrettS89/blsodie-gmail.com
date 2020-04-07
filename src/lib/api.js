@@ -92,3 +92,41 @@ export async function getCredits() {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function useCredit(id) {
+  const res = await fetch(`${URI}/credit/use/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': await getToken(),
+    },
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function getUserSubscriptions() {
+  const res = await fetch(`${URI}/usersubscription/get`, {
+    method: 'GET',
+    headers: {
+      'authorization': await getToken(),
+    }
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
+
+export async function cancelUserSubscription(id) {
+  const res = await fetch(`${URI}/usersubscription/cancel/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'authorization': await getToken(),
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}
