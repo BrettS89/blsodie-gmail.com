@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from '../styles';
 
-const Subscription = ({ sub, sub: { company, subscription } }) => {
+const Subscription = ({ sub, sub: { _id, company, subscription }, openModal }) => {
   const billMessage = subscription.billingFrequency === 'week'
     ? `Subscription billed and refreshed every ${sub.billOn}`
     : `Subscription billed and refreshd on the ${sub.billOn} of the month`;
@@ -23,7 +23,7 @@ const Subscription = ({ sub, sub: { company, subscription } }) => {
       <Text style={styles.subText}>
         {billMessage}
       </Text>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => openModal(_id)}>
         <Text style={[styles.subText, { color: 'red' }]}>
           Cancel subscription
         </Text>

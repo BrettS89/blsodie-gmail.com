@@ -107,10 +107,10 @@ function * getUserSubscriptionsHandler() {
   }
 }
 
-function * cancelUserSubscriptionHandler({ payload }) {
+function * cancelUserSubscriptionHandler({ payload: { userSubscriptionId, closeModal } }) {
   try {
     yield put({ type: actions.APP_IS_LOADING });
-    const { _id } = yield call(api.cancelUserSubscription, payload);
+    const { _id } = yield call(api.cancelUserSubscription, userSubscriptionId);
     const userSubscriptions = yield select(userSubscriptionsState);
     const filteredUserSubscriptions = userSubscriptions.filter(s => {
       return s._id !== _id;
@@ -118,8 +118,10 @@ function * cancelUserSubscriptionHandler({ payload }) {
     yield put({ type: actions.SET_USER_SUBSCRIPTIONS, payload: filteredUserSubscriptions });
     yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    closeModal();
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     console.log('cancelUserSubscriptionHandler error: ', e);
+    closeModal();
   }
 }

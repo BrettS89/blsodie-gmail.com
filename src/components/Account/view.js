@@ -3,13 +3,23 @@ import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Subscription from './components/Subscription';
+import CancelModal from './components/CancelModal';
 
-const AccountView = ({ subscriptions }) => {
+const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, closeModal, openModal }) => {
+  const addCardText = user.stripeId
+    ? 'Replace card'
+    : 'Add card';
+
+  const cardOnFileText = user.stripeId
+    ? `${user.cardType} ending in ${user.cardLast4}`
+    : 'No card on file';
+
   function renderSubscriptions() {
     return subscriptions.map(s => (
       <Subscription
         key={s._id}
         sub={s}
+        openModal={openModal}
       />
     ));
   }
@@ -23,12 +33,12 @@ const AccountView = ({ subscriptions }) => {
         <View style={styles.cardContainer}>
           <Icon name="credit-card" size={28} color={"grey"} style={styles.card}/>
           <Text style={styles.cardText}>
-            Visa ending in 3811
+            {cardOnFileText}
           </Text>
         </View>
         <TouchableOpacity>
           <Text style={styles.replaceCard}>
-            Replace card
+            {addCardText}
           </Text>
         </TouchableOpacity>
       </View>
@@ -38,6 +48,11 @@ const AccountView = ({ subscriptions }) => {
         </Text>
         {renderSubscriptions()}
       </View>
+      <CancelModal
+        modalOpen={modalOpen}
+        closeModal={closeModal}
+        cancelSubscription={cancelSubscription}
+      /> 
     </ScrollView>
   );
 };

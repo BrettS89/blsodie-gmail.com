@@ -72,4 +72,14 @@ export default StyleSheet.create({
     fontWeight: '700',
     color: colors.main,
   },
+  NotLoggedInView: {
+    flex: 1,
+    padding: 15,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  or: {
+    marginVertical: 15,
+  }
 });

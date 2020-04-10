@@ -34,6 +34,8 @@ function * isLoggedInHandler({ payload }) {
   } catch(e) {
     payload('failure');
     yield AsyncStorage.clear();
+    const { locations } = yield call(api.getSpots, {});
+    yield put({ type: actions.SET_SPOTS, payload: locations });
     console.log('isLoggedInHandler error', e);
   }
 }

@@ -1,4 +1,3 @@
-  
 import React, { useEffect } from 'react';
 import { AppLoading } from 'expo';
 import { useDispatch } from 'react-redux';
@@ -15,7 +14,7 @@ const Auth = props => {
     if (status === 'success') {
       props.navigation.navigate('Spots');
     } else {
-      props.navigation.navigate('Login');
+      props.navigation.navigate('Spots');
     }
   }
 

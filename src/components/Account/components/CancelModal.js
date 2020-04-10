@@ -3,10 +3,10 @@ import { Modal, View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles';
 import Button from '../../../shared/components/Button';
 
-export default function CancelMoal({ modalIsOpen, closeModal, cancelSubscription }) {
+export default function CancelMoal({ modalOpen, closeModal, cancelSubscription }) {
   return (
     <Modal
-      visible={modalIsOpen}
+      visible={modalOpen}
       transparent
       animationType="fade"
     >
@@ -24,7 +24,7 @@ export default function CancelMoal({ modalIsOpen, closeModal, cancelSubscription
 
           <TouchableOpacity onPress={closeModal}>
             <Text style={styles.noThanksText}>
-              Cancel
+              Nevermind
             </Text>
           </TouchableOpacity>
 
