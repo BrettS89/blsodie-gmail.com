@@ -57,4 +57,17 @@ export default StyleSheet.create({
     color: colors.main,
     marginLeft: 4,
   },
+  tcContainer: {
+    flexDirection:'row',
+    marginTop: 35,
+  },
+  tcText: {
+    color: 'gray',
+    fontSize: 11,
+  },
+  tcText2: {
+    color: 'gray',
+    fontSize: 11,
+    fontWeight: '700',
+  }
 });

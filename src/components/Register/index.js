@@ -41,6 +41,7 @@ const Register = props => {
       onRegister={onRegister}
       error={user.registrationError}
       toLogin={toLogin}
+      navigate={navigate}
     />
   );
 };

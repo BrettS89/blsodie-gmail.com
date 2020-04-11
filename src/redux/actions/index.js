@@ -15,6 +15,7 @@ export const SET_LOGIN_ERROR = 'SET_LOGIN_ERROR';
 export const SET_REGISTRATION_ERROR = 'SET_REGISTRATION_ERROR';
 export const SET_USER_DATA = 'SET_USER_DATA';
 export const ADD_CREDIT_CARD = 'ADD_CREDIT_CARD';
+export const LOGOUT = 'LOGOUT';
 
 // SPOTS
 export const GET_SPOTS = 'GET_SPOTS';

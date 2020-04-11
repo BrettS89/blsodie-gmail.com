@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import View from './view';
 import NotLoggedInView from './components/NotLoggedIn';
-import { GET_USER_SUBSCRIPTIONS, CANCEL_USER_SUBSCRIPTION } from '../../redux/actions';
+import { GET_USER_SUBSCRIPTIONS, CANCEL_USER_SUBSCRIPTION, LOGOUT } from '../../redux/actions';
 
 const Account = props => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,6 +36,10 @@ const Account = props => {
     props.navigation.navigate(screen);
   }
 
+  function logout() {
+    dispatch({ type: LOGOUT, payload: navigate });
+  }
+
   return Object.keys(user).length
     ? (
         <View
@@ -46,6 +50,7 @@ const Account = props => {
           closeModal={closeModal}
           modalOpen={modalOpen}
           navigate={navigate}
+          logout={logout}
         />
       )
     : <NotLoggedInView navigate={navigate}/>  

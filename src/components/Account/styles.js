@@ -10,6 +10,15 @@ export default StyleSheet.create({
   section: {
     marginBottom: 30,
   },
+  firstTitle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  logout: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.main,
+  },
   title: {
     fontSize: 18,
     fontWeight: '700',

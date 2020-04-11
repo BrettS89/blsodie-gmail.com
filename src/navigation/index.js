@@ -26,6 +26,9 @@ import UseSubscriptions from '../components/UseSubscriptions';
 import Login from '../components/Login';
 import Register from '../components/Register';
 import AddCreditCard from '../components/AddCreditcard';
+import Legal from '../components/Legal';
+import TermsAndConditions from '../components/TermsAndConditions';
+import PrivacyPolicy from '../components/PrivacyPolicy';
 
 // Auth nav
 import Auth from '../components/Auth';
@@ -45,7 +48,7 @@ const mainNav = createBottomTabNavigator({
       Spot: {
         screen: Spot,
         navigationOptions: {
-          headerLeft: () => <Logo />,
+          headerLeft: () => <HeaderBack screen={'Spots'} />,
           headerRight: () => null,
           headerTitle: () => null,
         },
@@ -145,6 +148,52 @@ const noBottomNav = createBottomTabNavigator({
     }),
     navigationOptions: {
       title: 'AddCreditCard',
+    }
+  },
+  Legal: {
+    screen: createStackNavigator({
+      Legal: {
+        screen: Legal,
+        title: 'Legal',
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Login'} />,
+          headerRight: () => null,
+          headerTitle: () => <View><Text style={screenTitleStyle.text}></Text></View>,
+        },
+      },
+    }),
+    navigationOptions: {
+      // title: 'TnC',
+    }
+  },
+  TermsAndConditions: {
+    screen: createStackNavigator({
+      TermsAndConditions: {
+        screen: TermsAndConditions,
+        title: 'TermsAndConditions',
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Legal'} />,
+          headerRight: () => null,
+        },
+      },
+    }),
+    navigationOptions: {
+      // title: 'TnC',
+    }
+  },
+  PrivacyPolicy: {
+    screen: createStackNavigator({
+      PrivacyPolicy: {
+        screen: PrivacyPolicy,
+        title: 'PrivacyPolicy',
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Legal'} />,
+          headerRight: () => null,
+        },
+      },
+    }),
+    navigationOptions: {
+      // title: 'TnC',
     }
   },
 },

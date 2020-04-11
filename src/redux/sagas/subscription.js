@@ -90,7 +90,7 @@ function * useCreditHandler({ payload: { subscriptionName, itemId, closeModal } 
     closeModal();
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
-    closeModal();
+    alert('Error', e.message);
     console.log('useCreditHandler', e);
   }
 }
@@ -122,6 +122,6 @@ function * cancelUserSubscriptionHandler({ payload: { userSubscriptionId, closeM
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     console.log('cancelUserSubscriptionHandler error: ', e);
-    closeModal();
+    alert('Error', e.message);
   }
 }

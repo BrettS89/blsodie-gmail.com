@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Subscription from './components/Subscription';
 import CancelModal from './components/CancelModal';
 
-const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, closeModal, openModal, navigate }) => {
+const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, closeModal, openModal, navigate, logout }) => {
   const addCardText = user.stripeId
     ? 'Replace card'
     : 'Add card';
@@ -28,9 +28,16 @@ const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, close
   return (
     <ScrollView style={styles.container}>
       <View style={styles.section}>
-        <Text style={styles.title}>
-          Payment method
-        </Text>
+        <View style={styles.firstTitle}>
+          <Text style={styles.title}>
+            Payment method
+          </Text>
+          <TouchableOpacity onPress={logout}>
+            <Text style={styles.logout}>
+              Log out
+            </Text>
+          </TouchableOpacity>
+        </View>  
         <View style={styles.cardContainer}>
           <Icon name="credit-card" size={28} color={"grey"} style={styles.card}/>
           <Text style={styles.cardText}>

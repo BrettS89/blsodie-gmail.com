@@ -73,6 +73,13 @@ const LoginView = (props) => {
           </View>
         </View>
 
+        <TouchableOpacity style={styles.tcContainer} onPress={() => props.navigate('Legal')}>
+          <Text style={styles.tcText}>By signing up or logging in you agree to our 
+            <Text style={styles.tcText2}> terms and conditions </Text>
+            <Text style={styles.tcText}>and </Text>
+            <Text style={styles.tcText2}>privacy policy.</Text>
+          </Text>
+        </TouchableOpacity>
 
       </View>
     </View>

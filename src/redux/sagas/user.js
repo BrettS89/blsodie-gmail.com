@@ -5,12 +5,14 @@ import {
 import * as actions from '../actions';
 import * as api from '../../lib/api';
 import { spotIdState, appState } from '../selectors';
+import alert from '../../utils/alert';
 
 export default [
   registerWatcher,
   loginWatcher,
   isLoggedInWatcher,
   addCreditCardWatcher,
+  logoutWatcher,
 ];
 
 function * isLoggedInWatcher() {
@@ -27,6 +29,10 @@ function * loginWatcher() {
 
 function * addCreditCardWatcher() {
   yield takeLatest(actions.ADD_CREDIT_CARD, addCreditCardHandler);
+}
+
+function * logoutWatcher() {
+  yield takeLatest(actions.LOGOUT, logoutHandler);
 }
 
 function * isLoggedInHandler({ payload }) {
@@ -107,6 +113,17 @@ function * addCreditCardHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.SET_NAV_TO_SPOT, payload: false });
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
+    alert('Error', e.message);
     console.log('addCreditCardHandler error: ', e);
+  }
+}
+
+function * logoutHandler({ payload }) {
+  try {
+    yield AsyncStorage.clear();
+    payload('Login');
+    yield put({ type: 'RESET' });
+  } catch(e) {
+    console.log('logoutHandler error: ', e);
   }
 }
