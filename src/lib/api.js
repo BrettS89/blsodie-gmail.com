@@ -130,3 +130,17 @@ export async function cancelUserSubscription(id) {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function addCreditCard(body) {
+  const res = await fetch(`${URI}/user/addcreditcard`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': await getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}

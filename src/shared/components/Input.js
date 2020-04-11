@@ -3,7 +3,7 @@ import { TextInput, View, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon2 from 'react-native-vector-icons/FontAwesome5';
 
-const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, onSubmitHandler, email, clear, type }) => {
+const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, onSubmitHandler, email, clear, type, maxLength=50 }) => {
 
   const displayIcon = () => {
     if(labelText === 'email') {
@@ -49,6 +49,7 @@ const Input = ({ labelText, value, onChangeText, placeholder, secureTextEntry, o
         autoCapitalize={'none'}
         underlineColorAndroid="transparent"
         onSubmitEditing={() => onSubmitHandler()}
+        maxLength={maxLength}
       />
     </View>  
   );

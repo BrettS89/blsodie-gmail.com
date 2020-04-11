@@ -3,42 +3,40 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Input from '../../shared/components/Input';
 
-const AddCreditCardView = ({ setCard, setMonth, setYear, setCvc, onSubmit }) => {
+const AddCreditCardView = ({ onInputChange, onSubmit }) => {
   return (
     <View style={styles.container}>
-      {/* <Text style={styles.title}>
-        Add payment method
-      </Text> */}
-
       <View style={styles.formContainer}>
         <View style={styles.inputContainer}>
           <Input
             name="card"
             labelText="card"
-            type="number"
+            type="cc-number"
             placeholder="Card number"
-            onChangeText={card => setCard(card)}
-            onSubmitHandler={onSubmit}
+            onChangeText={card => onInputChange('cardNumber', card)}
+            onSubmitHandler={() => {}}
           />
         </View>
         <View style={styles.inputContainer}>
           <Input
             name="month"
             labelText="date"
-            placeholder="Expiration month"
+            placeholder="Expiration month MM"
             type="number"
-            onChangeText={month => setMonth(month)}
-            onSubmitHandler={onSubmit}
+            onChangeText={month => onInputChange('month', month)}
+            onSubmitHandler={() => {}}
+            maxLength={2}
           />
         </View>
         <View style={styles.inputContainer}>
           <Input
             name="year"
             labelText="date"
-            placeholder="Expiration Year"
+            placeholder="Expiration Year YY"
             type="number"
-            onChangeText={year => setYear(year)}
-            onSubmitHandler={onSubmit}
+            onChangeText={year => onInputChange('year', year)}
+            onSubmitHandler={() => {}}
+            maxLength={2}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -47,12 +45,12 @@ const AddCreditCardView = ({ setCard, setMonth, setYear, setCvc, onSubmit }) => 
             labelText="password"
             placeholder="CVC"
             type="number"
-            onChangeText={cvc => setCvc(cvc)}
-            onSubmitHandler={onSubmit}
+            onChangeText={cvc => onInputChange('cvc', cvc)}
+            onSubmitHandler={() => {}}
           />
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onSubmit}>
           <Text style={styles.buttonText}>
             Add card
           </Text>

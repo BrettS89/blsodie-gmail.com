@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import SpotView from './view';
 import { getOneSpot } from '../../lib/api';
-import { SET_SUBSCRIPTION, OPEN_LOGIN_MODAL } from '../../redux/actions';
+import { SET_SUBSCRIPTION, OPEN_LOGIN_MODAL, OPEN_CREDIT_CARD_MODAL } from '../../redux/actions';
 
 const Spot = props => {
   const [spot, setSpot] = useState(null);
@@ -26,9 +26,12 @@ const Spot = props => {
       name: spot.name,
       photo: spot.photo,
     };
-    if (Object.keys(user).length) {
+
+    if (Object.keys(user).length && user.stripeId) {
       dispatch({ type: SET_SUBSCRIPTION, payload: subscription });
       props.navigation.navigate('ConfirmSubscription');
+    } else if (Object.keys(user).length && !user.stripeId) {
+      dispatch({ type: OPEN_CREDIT_CARD_MODAL });
     } else {
       dispatch({ type: OPEN_LOGIN_MODAL });
     }

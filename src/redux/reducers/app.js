@@ -26,6 +26,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         loginModalOpen: true,
+        navToSpot: true,
       };
 
     case CLOSE_LOGIN_MODAL:
@@ -38,6 +39,7 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         creditCardModalOpen: true,
+        navToSpot: true,
       };
 
     case CLOSE_CREDIT_CARD_MODAL:

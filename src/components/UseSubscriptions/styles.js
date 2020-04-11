@@ -27,7 +27,7 @@ export default StyleSheet.create({
   subTitleText: {
     color: '#fff',
     fontSize: 16,
-    fontWeight: '800',
+    fontWeight: '700',
   },
   itemsContainer: {
     paddingHorizontal: 15,

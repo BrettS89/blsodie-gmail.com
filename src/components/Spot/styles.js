@@ -24,8 +24,6 @@ export default StyleSheet.create({
   subscriptions: {
     textAlign: 'center',
     marginBottom: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
     fontWeight: '600',
   },
   subTitle: {

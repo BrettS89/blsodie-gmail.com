@@ -15,12 +15,6 @@ const LoadingModal = props => {
 };
 
 const styles = StyleSheet.create({
-  // container: {
-  //   position: 'absolute',
-  //   width: '100%',
-  //   height: '100%',
-  //   backgroundColor: 'rgba(242, 241, 239, 0.2)',
-  // },
   modalContainer: {
     position: 'absolute',
     height: '100%',

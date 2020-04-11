@@ -3,6 +3,7 @@ import { View, ScrollView, Text, TouchableOpacity, Image, FlatList } from 'react
 import styles from './styles';
 import Subscription from './components/Subscription';
 import LoginModal from '../_modals/LoginModal';
+import CreditCardModal from '../_modals/CreditCardModal';
 
 const SpotView = ({ spot, selectSubscription }) => {
   function renderSubscriptions() {
@@ -28,6 +29,7 @@ const SpotView = ({ spot, selectSubscription }) => {
       </Text>
       {renderSubscriptions()}
       <LoginModal />
+      <CreditCardModal />
     </ScrollView>
   );
 };
