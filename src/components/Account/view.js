@@ -1,11 +1,12 @@
 import React from 'react';
 import { ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import Button from '../../shared/components/Button';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Subscription from './components/Subscription';
 import CancelModal from './components/CancelModal';
 
-const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, closeModal, openModal }) => {
+const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, closeModal, openModal, navigate }) => {
   const addCardText = user.stripeId
     ? 'Replace card'
     : 'Add card';
@@ -36,11 +37,9 @@ const AccountView = ({ subscriptions, user, cancelSubscription, modalOpen, close
             {cardOnFileText}
           </Text>
         </View>
-        <TouchableOpacity>
-          <Text style={styles.replaceCard}>
-            {addCardText}
-          </Text>
-        </TouchableOpacity>
+        <View style={{ alignItems: 'flex-start', marginTop: 10 }}>
+          <Button text={addCardText} onPress={() => navigate('AddCreditCard')}/>
+        </View>
       </View>
       <View style={styles.section}>
         <Text style={styles.title}>

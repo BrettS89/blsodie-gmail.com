@@ -25,6 +25,7 @@ import UseSubscriptions from '../components/UseSubscriptions';
 // No bottom tab nav
 import Login from '../components/Login';
 import Register from '../components/Register';
+import AddCreditCard from '../components/AddCreditcard';
 
 // Auth nav
 import Auth from '../components/Auth';
@@ -128,6 +129,22 @@ const noBottomNav = createBottomTabNavigator({
     }),
     navigationOptions: {
       title: 'ConfirmSubscription',
+    }
+  },
+  AddCreditCard: {
+    screen: createStackNavigator({
+      AddCreditCard: {
+        screen: AddCreditCard,
+        title: 'AddCreditCard',
+        navigationOptions: {
+          headerLeft: () => <HeaderBack screen={'Account'} />,
+          headerRight: () => null,
+          headerTitle: () => <View><Text style={screenTitleStyle.text}>Add Credit Card</Text></View>,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'AddCreditCard',
     }
   },
 },

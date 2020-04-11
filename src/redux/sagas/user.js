@@ -4,6 +4,7 @@ import {
 } from 'redux-saga/effects';
 import * as actions from '../actions';
 import * as api from '../../lib/api';
+import { spotIdState } from '../selectors';
 
 export default [
   registerWatcher,
@@ -60,6 +61,7 @@ function * registerHandler({ payload: { form, navigate } }) {
 
 function * loginHandler({ payload: { form, navigate } }) {
   try {
+    let screen = 'Spots';
     yield put({ type: actions.APP_IS_LOADING });
     yield put({ type: actions.SET_LOGIN_ERROR, payload: null });
     const { token, user } = yield call(api.login, form);
@@ -69,7 +71,9 @@ function * loginHandler({ payload: { form, navigate } }) {
     const { locations } = yield call(api.getSpots, {});
     yield put({ type: actions.SET_SPOTS, payload: locations });
     yield put({ type: actions.APP_IS_NOT_LOADING });
-    navigate('Spots');
+    const spotId = yield select(spotIdState);
+    if (spotId) screen = 'Spot';
+    navigate(screen);
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     yield put({ type: actions.SET_LOGIN_ERROR, payload: e.message });

@@ -6,13 +6,14 @@ import Navigation from './src/navigation';
 
 // Modals
 import LoadingModal from './src/shared/components/LoadingModal';
+import LoadingModal2 from './src/shared/components/Loading2';
 
 export default function App() {
   return (
     <Provider store={store()}>
       <View style={styles.container}>
         <Navigation />
-        <LoadingModal />
+        <LoadingModal2 />
       </View>
     </Provider>
   );

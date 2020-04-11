@@ -3,12 +3,13 @@ import { View, Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import SpotView from './view';
 import { getOneSpot } from '../../lib/api';
-import { SET_SUBSCRIPTION } from '../../redux/actions';
+import { SET_SUBSCRIPTION, OPEN_LOGIN_MODAL } from '../../redux/actions';
 
 const Spot = props => {
   const [spot, setSpot] = useState(null);
   const dispatch = useDispatch();
   const spotId = useSelector(state => state.spots.spotId);
+  const user = useSelector(state => state.user.userData);
 
   useEffect(() => {
     async function getSpot() {
@@ -25,8 +26,12 @@ const Spot = props => {
       name: spot.name,
       photo: spot.photo,
     };
-    dispatch({ type: SET_SUBSCRIPTION, payload: subscription });
-    props.navigation.navigate('ConfirmSubscription');
+    if (Object.keys(user).length) {
+      dispatch({ type: SET_SUBSCRIPTION, payload: subscription });
+      props.navigation.navigate('ConfirmSubscription');
+    } else {
+      dispatch({ type: OPEN_LOGIN_MODAL });
+    }
   }
 
   return spot

@@ -2,6 +2,7 @@ import React from 'react';
 import { View, ScrollView, Text, TouchableOpacity, Image, FlatList } from 'react-native';
 import styles from './styles';
 import Subscription from './components/Subscription';
+import LoginModal from '../_modals/LoginModal';
 
 const SpotView = ({ spot, selectSubscription }) => {
   function renderSubscriptions() {
@@ -26,6 +27,7 @@ const SpotView = ({ spot, selectSubscription }) => {
         Subscriptions
       </Text>
       {renderSubscriptions()}
+      <LoginModal />
     </ScrollView>
   );
 };

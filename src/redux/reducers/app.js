@@ -1,9 +1,10 @@
-import { APP_IS_LOADING, APP_IS_NOT_LOADING, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, OPEN_CREDIT_CARD_MODAL, CLOSE_CREDIT_CARD_MODAL } from '../actions';
+import { APP_IS_LOADING, APP_IS_NOT_LOADING, OPEN_LOGIN_MODAL, CLOSE_LOGIN_MODAL, OPEN_CREDIT_CARD_MODAL, CLOSE_CREDIT_CARD_MODAL, SET_NAV_TO_SPOT } from '../actions';
 
 const INITIAL_STATE = {
   isLoading: false,
   loginModalOpen: false,
   creditCardModalOpen: false,
+  navToSpot: false,
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -43,6 +44,12 @@ export default (state = INITIAL_STATE, { type, payload }) => {
       return {
         ...state,
         creditCardModalOpen: false,
+      };
+    
+    case SET_NAV_TO_SPOT:
+      return {
+        ...state,
+        navToSpot: payload,
       };
 
     default:

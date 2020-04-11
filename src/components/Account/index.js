@@ -45,6 +45,7 @@ const Account = props => {
           openModal={openCancelModal}
           closeModal={closeModal}
           modalOpen={modalOpen}
+          navigate={navigate}
         />
       )
     : <NotLoggedInView navigate={navigate}/>  
