@@ -9,9 +9,9 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/paradyseIcon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/paradyseSplash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,7 +22,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.paradyse.paradyse"
+    },
+    "android": {
+      "package": "com.paradyse.paradyse",
+      "versionCode": 1,
+      "splash": {
+        "image": "./assets/images/one24-splash.png",
+        "resizeMode": "cover"
+      }
     }
   }
 }
