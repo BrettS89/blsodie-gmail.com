@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenTitleStyle from '../shared/styles/screenTitle';
 import SpotTitle from '../shared/components/SpotTitle';
+import LocationSearch from '../shared/components/LocationSearch';
 
 // Logo
 import Logo from '../shared/components/Logo';
@@ -42,7 +43,7 @@ const mainNav = createBottomTabNavigator({
         screen: Spots,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          headerRight: () => null,
+          // headerRight: () => <LocationSearch />,
           headerTitle: () => null,
         },
       },

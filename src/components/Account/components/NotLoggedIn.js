@@ -19,7 +19,7 @@ const NotLoggedInView = ({ navigate }) => {
         Or
       </Text>
       <TouchableOpacity onPress={() => navigate('Register')}>
-        <Text style={styles.replaceCard}>
+        <Text style={[styles.replaceCard, { fontWeight: '700' }]}>
           Sign up
         </Text>
       </TouchableOpacity>
