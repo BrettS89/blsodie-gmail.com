@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../shared/styles/colors';
 
 export default StyleSheet.create({
   container: {
@@ -7,22 +8,27 @@ export default StyleSheet.create({
   },
   SpotCard: {
     width: '100%',
-    alignItems: 'center',
-    textAlign: 'center',
     marginBottom: 30,
   },
-  content: {
-
-  },
   text: {
-    textAlign: 'center',
-    marginBottom: 15,
-    fontSize: 18,
+    marginBottom: 7,
+    fontSize: 16,
     fontWeight: '700'
   },
   photo: {
     width: '100%',
     height: 250,
-    marginBottom: 15,
+    marginBottom: 10,
+  },
+  textContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 15,
+  },
+  buttonText: {
+    fontWeight: '700',
+    color: colors.main,
+    fontSize: 16,
+    marginRight: 6,
   }
 });

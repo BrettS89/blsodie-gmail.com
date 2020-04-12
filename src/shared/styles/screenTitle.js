@@ -6,5 +6,6 @@ export default StyleSheet.create({
     color: colors.main,
     fontWeight: '700',
     fontSize: 16,
+    textAlign: 'center',
   },
 });

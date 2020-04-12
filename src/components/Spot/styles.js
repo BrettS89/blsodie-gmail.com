@@ -24,7 +24,7 @@ export default StyleSheet.create({
   subscriptions: {
     textAlign: 'center',
     marginBottom: 15,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   subTitle: {
     flexDirection: 'row',

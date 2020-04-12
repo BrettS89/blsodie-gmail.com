@@ -10,6 +10,7 @@ import Colors from '../shared/styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Icon2 from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenTitleStyle from '../shared/styles/screenTitle';
+import SpotTitle from '../shared/components/SpotTitle';
 
 // Logo
 import Logo from '../shared/components/Logo';
@@ -50,7 +51,7 @@ const mainNav = createBottomTabNavigator({
         navigationOptions: {
           headerLeft: () => <HeaderBack screen={'Spots'} />,
           headerRight: () => null,
-          headerTitle: () => null,
+          headerTitle: () => <SpotTitle />,
         },
       },
     }),
@@ -58,7 +59,7 @@ const mainNav = createBottomTabNavigator({
       title: 'Find Spots',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="search" size={24} color={tintColor}/>
+        <Icon name="search" size={18} color={tintColor}/>
       )
     }
   },
@@ -77,7 +78,7 @@ const mainNav = createBottomTabNavigator({
       title: 'Subscriptions',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="store" size={23} color={tintColor}/>
+        <Icon name="store" size={17} color={tintColor}/>
       )
     }
   },
@@ -96,7 +97,7 @@ const mainNav = createBottomTabNavigator({
       title: 'Account',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon2 name="account-circle" size={30} color={tintColor}/>
+        <Icon2 name="account-circle" size={24} color={tintColor}/>
       )
     }
   },

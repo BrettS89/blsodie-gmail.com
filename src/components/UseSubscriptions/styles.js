@@ -15,7 +15,7 @@ export default StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: 10,
   },
   subTitle: {
     width: '100%',

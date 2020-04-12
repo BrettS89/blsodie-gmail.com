@@ -21,9 +21,6 @@ const SpotView = ({ spot, selectSubscription }) => {
   return (
     <ScrollView style={styles.container}>
       <Image source={{ uri: spot.photo }} style={styles.photo} resizeMode="cover" />
-      <Text style={styles.title}>
-        {spot.name}
-      </Text>
       <Text style={styles.subscriptions}>
         Subscriptions
       </Text>

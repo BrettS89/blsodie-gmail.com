@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { ADD_CREDIT_CARD, SET_SPOT_ID } from '../../redux/actions';
+import React, { useEffect, useState } from 'react';
+import { BackHandler } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { ADD_CREDIT_CARD } from '../../redux/actions';
 import View from './view';
 import alert from '../../utils/alert';
 
@@ -11,9 +12,23 @@ const AddCreditCard = props => {
   const [cvc, setCvc] = useState('');
 
   const dispatch = useDispatch();
+  let backHandler = null;
+
+  useEffect(() => {
+    backHandler = BackHandler.addEventListener('hardwareBackPress', backPress);
+
+    return () => {
+      backHandler.remove();
+    };
+  }, []); 
 
   function navigate(screen) {
     props.navigation.navigate(screen);
+  }
+
+  function backPress() {
+    props.navigation.navigate('Account');
+    return true;
   }
 
   function onSubmit() {
