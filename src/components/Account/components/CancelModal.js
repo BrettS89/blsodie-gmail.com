@@ -16,6 +16,10 @@ export default function CancelMoal({ modalOpen, closeModal, cancelSubscription }
             Are you sure you want to cancel this subscription?
           </Text>
 
+          <Text style={styles.warning}>
+            When you cancel a subscription you'll lose the existing credits
+          </Text>
+
           <Button
             text="Yes"
             buttonStyle={{ width: 150, marginBottom: 16 }}

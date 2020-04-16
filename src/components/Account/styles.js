@@ -72,7 +72,7 @@ export default StyleSheet.create({
     fontWeight: '600',
     fontSize: 20,
     textAlign: 'center',
-    marginBottom: 30
+    marginBottom: 10
   },
   tokensIcon: {
     marginVertical: 25,
@@ -90,5 +90,10 @@ export default StyleSheet.create({
   },
   or: {
     marginVertical: 15,
+  },
+  warning: {
+    fontSize: 12,
+    marginBottom: 20,
+    textAlign: 'center',
   }
 });

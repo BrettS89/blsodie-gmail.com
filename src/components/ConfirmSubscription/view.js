@@ -12,7 +12,7 @@ const ConfirmView = ({ subscription, subscription: { company }, subscribe }) => 
           style={styles.photo}
           resizeMode="cover"
         />
-        <Text style={styles.text}>
+        <Text style={[styles.text, { fontWeight: '700', fontSize: 18 }]}>
           {company.name}
         </Text>
         <Text style={styles.text}>
@@ -22,14 +22,14 @@ const ConfirmView = ({ subscription, subscription: { company }, subscribe }) => 
           ${subscription.price} / {subscription.billingFrequency}
         </Text>
       </View>
-      <SafeAreaView style={styles.buttonContainer}>
+      <View style={styles.buttonContainer}>
         <Button
           text="Confirm Subscription"
           buttonStyle={styles.button}
           textStyle={styles.buttonText}
           onPress={subscribe}
         />
-      </SafeAreaView>
+      </View>
     </View>
   );
 };

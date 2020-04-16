@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
   },
   content: {
     alignItems: 'center',
@@ -14,19 +14,19 @@ export default StyleSheet.create({
     width: '100%',
     height: 250,
     borderRadius: 4,
-    marginBottom: 60,
+    marginBottom: 15,
   },
   text: {
     fontWeight: '600',
-    fontSize: 18,
-    marginBottom: 15,
+    fontSize: 16,
+    marginBottom: 4,
   },
   buttonContainer: {
-    marginHorizontal: 15,
-    marginBottom: 30,
+    marginTop: 25,
+    alignItems:'center',
   },
   button: {
-    height: 50,
+    width: 260,
   },
   buttonText: {
     fontSize: 16,
