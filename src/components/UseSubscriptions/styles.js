@@ -20,7 +20,7 @@ export default StyleSheet.create({
   subTitle: {
     width: '100%',
     paddingHorizontal: 15,
-    paddingVertical: 12,
+    paddingVertical: 10,
     backgroundColor: colors.main,
     borderRadius: 50,
   },

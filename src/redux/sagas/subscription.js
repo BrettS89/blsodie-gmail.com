@@ -38,7 +38,6 @@ function * cancelUserSubscriptionWatcher() {
 
 function * subscribeHandler({ payload: { data, navigate } }) {
   try {
-    console.log('in');
     yield put({ type: actions.APP_IS_LOADING });
     const userSubscriptions = yield select(userSubscriptionsState);
     const { userSubscription } = yield call(api.subscribe, data);
