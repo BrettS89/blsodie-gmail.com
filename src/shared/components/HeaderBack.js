@@ -8,7 +8,7 @@ import colors from '../styles/colors';
 const HeaderBack = ({ navigation, screen }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(screen)}>
-      <Back name="ios-arrow-round-back" size={40} color={colors.main} />
+      <Back name="md-arrow-back" size={30} color={colors.main} />
     </TouchableOpacity>
   );
 };

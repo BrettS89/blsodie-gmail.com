@@ -42,7 +42,7 @@ export default StyleSheet.create({
   },
   items: {
     paddingHorizontal: 15,
-    marginBottom: 9,
+    marginBottom: 7,
   },
   itemRow: {
     flexDirection: 'row',
@@ -55,6 +55,13 @@ export default StyleSheet.create({
   itemText: {
     fontWeight: '600',
     fontSize: 16,
+  },
+  description: {
+    marginBottom: 7,
+    paddingHorizontal: 15,
+  },
+  descriptionText: {
+    fontSize: 13,
   },
   subscribeButtonText: {
     textAlign: 'center',

@@ -18,6 +18,18 @@ const Subscription = ({ sub, selectSubscription }) => {
     })
   }
 
+  function renderDescription() {
+    if (sub.description) {
+      return (
+        <View style={styles.description}>
+          <Text style={styles.descriptionText}>
+            {sub.description}
+          </Text>
+        </View>
+      );
+    }
+  }
+
   return (
     <View style={styles.Subscription}>
       <View style={styles.subTitle}>
@@ -31,7 +43,7 @@ const Subscription = ({ sub, selectSubscription }) => {
       <View style={styles.items}>
         {renderItems()}
       </View>
-
+      {renderDescription()}
       <TouchableOpacity onPress={() => selectSubscription(sub)}>
         <Text style={styles.subscribeButtonText}>
           Subscribe
