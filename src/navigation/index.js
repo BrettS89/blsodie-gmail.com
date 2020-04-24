@@ -43,7 +43,7 @@ const mainNav = createBottomTabNavigator({
         screen: Spots,
         navigationOptions: {
           headerLeft: () => <Logo />,
-          // headerRight: () => <LocationSearch />,
+          headerRight: () => <LocationSearch />,
           headerTitle: () => null,
         },
       },

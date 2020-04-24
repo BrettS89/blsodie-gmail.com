@@ -89,7 +89,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   or: {
-    marginVertical: 15,
+    marginVertical: 10,
   },
   warning: {
     fontSize: 12,

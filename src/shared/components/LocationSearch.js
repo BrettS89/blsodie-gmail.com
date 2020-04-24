@@ -11,7 +11,8 @@ const LocationSearch = props => {
       <View style={styles.searchBar}>
         <TextInput 
           placeholder="zip"
-          value="07302"
+          value="Jersey City"
+          editable={false}
           underlineColorAndroid="transparent"
           color="grey"
           style={{ fontSize: 16 }}
@@ -34,7 +35,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   searchBar: {
-    width: 50,
+    // width: 50,
+    width: 81,
     marginLeft: 9,
   }
 });
