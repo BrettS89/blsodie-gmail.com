@@ -9,14 +9,15 @@ const LocationSearch = props => {
     <View style={styles.container}>
       <Icon name="map-marker-alt" size={24} color={colors.main} />
       <View style={styles.searchBar}>
-        <TextInput 
-          placeholder="zip"
+        {/* <TextInput 
+          placeholder="Jersey City"
           value="Jersey City"
           editable={false}
           underlineColorAndroid="transparent"
-          color="grey"
+          color="#818181"
           style={{ fontSize: 16 }}
-        />
+        /> */}
+        <Text style={{ fontSize: 16 }}>Jersey City</Text>
       </View>
     </View>
   );
