@@ -16,8 +16,18 @@ const Subscription = ({ sub, openModal }) => {
     ));
   }
 
+  function renderCancelledBySpot() {
+    if (sub.cancelledBySpot) {
+      return (
+        <Text style={styles.cancelled}>
+          This subscription has been cancelled by the local business and will be removed once all credits are used.
+        </Text>
+      );
+    }
+  }
+
   return (
-    <View>
+    <View style={styles.Subscription}>
       <View style={styles.subTitle}>
         <Text style={styles.subTitleText}>
           {sub.name}
@@ -26,6 +36,7 @@ const Subscription = ({ sub, openModal }) => {
       <View style={styles.itemsContainer}>
       {renderItems()}
       </View>
+      {renderCancelledBySpot()}
     </View>
   );
 };

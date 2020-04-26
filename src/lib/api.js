@@ -98,6 +98,7 @@ export async function useCredit(data) {
     method: 'PATCH',
     headers: {
       'authorization': await getToken(),
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(data),
   });

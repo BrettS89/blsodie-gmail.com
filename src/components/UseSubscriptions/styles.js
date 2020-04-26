@@ -17,6 +17,9 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 10,
   },
+  Subscription: {
+    marginBottom: 50,
+  },
   subTitle: {
     width: '100%',
     paddingHorizontal: 15,
@@ -39,7 +42,6 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderBottomColor: '#e0e0e0',
-    marginBottom: 50,
   },
   itemSection: {
     width: '33%',
@@ -73,5 +75,11 @@ export default StyleSheet.create({
   noThanksText: {
     fontWeight: '700',
     color: colors.main,
+  },
+  cancelled: {
+    marginTop: 7,
+    paddingHorizontal: 15,
+    color: '#ff0000',
+    fontSize: 12,
   },
 });
