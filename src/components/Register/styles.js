@@ -57,7 +57,6 @@ export default StyleSheet.create({
   },
   tcContainer: {
     flexDirection:'row',
-    marginTop: 35,
   },
   tcText: {
     color: 'gray',
