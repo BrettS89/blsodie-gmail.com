@@ -36,6 +36,10 @@ const UseSubscriptions = props => {
       }
   }
 
+  function navigateToSpots() {
+    props.navigation.navigate('Spots');
+  }
+
   return (
     <View
       subs={userSubs}
@@ -43,6 +47,7 @@ const UseSubscriptions = props => {
       closeModal={closeModal}
       modalIsOpen={modalIsOpen}
       useCredit={useCredit}
+      navigateToSpots={navigateToSpots}
     />
   );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
 import { View, ScrollView, Text } from 'react-native';
+import Button from '../../shared/components/Button';
 import styles from './styles';
 import Subscription from './components/Subscription';
 import UseCreditModal from './components/UseCreditModal';
 
-const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen, useCredit }) => {
+const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen, useCredit, navigateToSpots }) => {
   function renderSubscriptions() {
     return subs.map(s => (
       <Subscription
@@ -13,6 +14,25 @@ const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen, useCre
         openModal={openModal}
       />
     ));
+  }
+
+  function renderNoSubs() {
+    if (!subs.length) {
+      return (
+        <View style={styles.noSubs}>
+          <View style={styles.noSubsContent}>
+            <Text style={styles.noSubsText}>
+              You don't have any subscriptions
+            </Text>
+            <Button
+              text="Find subscriptions"
+              buttonStyle={{ width: 180 }}
+              onPress={navigateToSpots}
+            />
+          </View>
+        </View>
+      )
+    }
   }
 
   return (
@@ -28,6 +48,7 @@ const UseSubscriptionsView = ({ subs, openModal, closeModal, modalIsOpen, useCre
       <View>
         {renderSubscriptions()}
       </View>
+      {renderNoSubs()}
       <UseCreditModal
         modalIsOpen={modalIsOpen}
         closeModal={closeModal}

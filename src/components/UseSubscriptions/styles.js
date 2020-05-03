@@ -82,4 +82,16 @@ export default StyleSheet.create({
     color: '#ff0000',
     fontSize: 12,
   },
+  noSubs: {
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noSubsContent: {
+    alignItems: 'center',
+  },
+  noSubsText: {
+    fontWeight: '700',
+    marginBottom: 10
+  }
 });
