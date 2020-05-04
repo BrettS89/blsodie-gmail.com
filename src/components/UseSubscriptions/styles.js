@@ -85,6 +85,8 @@ export default StyleSheet.create({
     fontSize: 12,
   },
   noSubs: {
+    marginTop: 40,
+    flex: 1,
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
