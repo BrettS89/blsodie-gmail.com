@@ -9,11 +9,13 @@ const UseSubscriptions = props => {
   const [itemId, setItemId] = useState(null);
   const [credits, setCredits] = useState(null);
   const [userSubscriptionId, setUserSubscriptionId] = useState(null);
+  const [itemName, setItemName] = useState(null);
 
   const dispatch = useDispatch();
   const userSubs = useSelector(state => state.subscription.credits);
 
-  function openModal(subName, itmId, creds, userSubId) {
+  function openModal(subName, itmId, creds, userSubId, itemName) {
+    setItemName(itemName);
     setModalIsOpen(true);
     setSubscriptionName(subName);
     setCredits(creds);
@@ -27,6 +29,7 @@ const UseSubscriptions = props => {
     setSubscriptionName(null);
     setCredits(null);
     setUserSubscriptionId(null);
+    setItemName(null);
   }
 
   async function useCredit() {
@@ -48,6 +51,7 @@ const UseSubscriptions = props => {
       modalIsOpen={modalIsOpen}
       useCredit={useCredit}
       navigateToSpots={navigateToSpots}
+      itemName={itemName}
     />
   );
 };

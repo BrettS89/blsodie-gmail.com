@@ -8,7 +8,7 @@ const Item = ({ item, openModal, subscriptionName, userSubscriptionId }) => {
   return (
     <View style={styles.Item}>
       <View style={styles.itemSection}>
-        <Text style={styles.itemText}>
+        <Text style={styles.itemName}>
         {item.name}
         </Text>
       </View>
@@ -18,7 +18,7 @@ const Item = ({ item, openModal, subscriptionName, userSubscriptionId }) => {
         </Text>
       </View>
       <View style={[styles.itemSection, { alignItems: 'flex-end' }]}>
-        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => openModal(subscriptionName, item._id, item.credits, userSubscriptionId)}>
+        <TouchableOpacity style={{ alignItems: 'center' }} onPress={() => openModal(subscriptionName, item._id, item.credits, userSubscriptionId, item.name)}>
           <Icon name="stars" size={32} color={colors.main} />
           <Text style={{ fontSize: 11, color: colors.main, fontWeight: '500' }}>
             Redeem

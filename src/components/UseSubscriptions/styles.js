@@ -15,7 +15,7 @@ export default StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 5,
   },
   Subscription: {
     marginBottom: 50,
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     paddingHorizontal: 15,
   },
   Item: {
-    height: 60,
+    height: 57,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -46,9 +46,11 @@ export default StyleSheet.create({
   itemSection: {
     width: '33%',
   },
+  itemName: {
+    fontWeight: '700'
+  },
   itemText: {
     fontWeight: '600',
-    fontSize: 15,
   },
   modalContainer: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)', 

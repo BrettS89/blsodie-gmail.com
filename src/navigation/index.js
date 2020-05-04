@@ -60,7 +60,7 @@ const mainNav = createBottomTabNavigator({
       title: 'Find Spots',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="search" size={18} color={tintColor}/>
+        <Icon name="search" size={21} color={tintColor}/>
       )
     }
   },
@@ -76,10 +76,10 @@ const mainNav = createBottomTabNavigator({
       },
     }),
     navigationOptions: {
-      title: 'Subscriptions',
+      title: 'My Subscriptions',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="store" size={17} color={tintColor}/>
+        <Icon name="store" size={20} color={tintColor}/>
       )
     }
   },
@@ -98,7 +98,7 @@ const mainNav = createBottomTabNavigator({
       title: 'Account',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon2 name="account-circle" size={24} color={tintColor}/>
+        <Icon2 name="account-circle" size={28} color={tintColor}/>
       )
     }
   },

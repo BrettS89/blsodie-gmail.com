@@ -3,7 +3,7 @@ import { Modal, View, Text, TouchableOpacity } from 'react-native';
 import styles from '../styles';
 import Button from '../../../shared/components/Button';
 
-export default function insufficientTokensView({ modalIsOpen, closeModal, useCredit }) {
+export default function insufficientTokensView({ modalIsOpen, closeModal, useCredit, itemName }) {
   return (
     <Modal
       visible={modalIsOpen}
@@ -13,7 +13,7 @@ export default function insufficientTokensView({ modalIsOpen, closeModal, useCre
       <View style={styles.modalContainer}>
         <View style={styles.modalContentContainer}>
           <Text style={styles.modalTitle}>
-            Are you sure you want to use this credit?
+            {`Are you sure you want to redeem one ${itemName}?`}
           </Text>
 
           <Button

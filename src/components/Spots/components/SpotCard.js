@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
+import Button from '../../../shared/components/Button';
 import styles from '../styles';
 
 
@@ -21,11 +22,15 @@ const SpotCard = ({ spot: { company }, goToSpot }) => {
             {company.subscriptions} {subscriptionText}
           </Text>
         </View>
-        <TouchableOpacity onPress={() => goToSpot(company._id)}>
+        {/* <TouchableOpacity onPress={() => goToSpot(company._id)}>
           <Text style={styles.buttonText}>
             View subscriptions
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <Button
+          text="View subscriptions"
+          onPress={() => goToSpot(company._id)}
+        />
       </View>
     </View>
   );

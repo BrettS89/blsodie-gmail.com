@@ -25,10 +25,4 @@ export default StyleSheet.create({
     marginTop: 25,
     alignItems:'center',
   },
-  button: {
-    width: 260,
-  },
-  buttonText: {
-    fontSize: 16,
-  }
 });

@@ -25,8 +25,6 @@ const ConfirmView = ({ subscription, subscription: { company }, subscribe }) => 
       <View style={styles.buttonContainer}>
         <Button
           text="Confirm Subscription"
-          buttonStyle={styles.button}
-          textStyle={styles.buttonText}
           onPress={subscribe}
         />
       </View>
