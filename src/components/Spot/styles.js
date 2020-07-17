@@ -1,5 +1,6 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import colors from '../../shared/styles/colors';
+const ipad = Platform.isPad
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ export default StyleSheet.create({
   },
   photo: {
     width: '100%',
-    height: 250,
+    height: ipad ? 450 : 250,
     marginBottom: 15,
   },
   title: {
@@ -19,12 +20,13 @@ export default StyleSheet.create({
   },
   Subscription: {
     marginBottom: 30,
-    paddingHorizontal: 15,
+    paddingHorizontal: ipad ? 150 : 15,
   },
   subscriptions: {
     textAlign: 'center',
     marginBottom: 15,
     fontWeight: '700',
+    fontSize: ipad ? 20 : 14,
   },
   subTitle: {
     flexDirection: 'row',

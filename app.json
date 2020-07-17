@@ -1,13 +1,13 @@
 {
   "expo": {
     "name": "Paradyse",
-    "slug": "paradyse",
+    "slug": "paradyse-prod-1-0-0",
     "platforms": [
       "ios",
       "android",
       "web"
     ],
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/paradyseIcon.png",
     "splash": {
@@ -23,13 +23,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.paradyse.paradyse"
+      "bundleIdentifier": "com.paradyse.paradise",
+      "splash": {
+        "image": "./assets/paradyseSplash.png",
+        "resizeMode": "cover"
+      }
     },
     "android": {
-      "package": "com.paradyse.paradyse",
+      "package": "com.paradyse.paradise",
       "versionCode": 1,
       "splash": {
-        "image": "./assets/images/one24-splash.png",
+        "image": "./assets/paradyseSplash.png",
         "resizeMode": "cover"
       }
     }

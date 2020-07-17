@@ -1,13 +1,15 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import colors from '../../shared/styles/colors';
+
 
 export default StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: Platform.isPad ? 'center' : 'stretch',
     backgroundColor: '#fff',
   },
   SpotCard: {
-    width: '100%',
+    width: Platform.isPad ? 600 : '100%',
     marginBottom: 30,
   },
   text: {
@@ -28,7 +30,7 @@ export default StyleSheet.create({
   buttonText: {
     fontWeight: '700',
     color: colors.main,
-    fontSize: 16,
+    fontSize: 14,
     marginRight: 6,
   }
 });

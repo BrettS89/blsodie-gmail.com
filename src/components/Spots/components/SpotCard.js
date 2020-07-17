@@ -3,8 +3,6 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Button from '../../../shared/components/Button';
 import styles from '../styles';
 
-
-
 const SpotCard = ({ spot: { company }, goToSpot }) => {
   const subscriptionText = company.subscriptions === 1
     ? 'subscription'
@@ -30,6 +28,8 @@ const SpotCard = ({ spot: { company }, goToSpot }) => {
         <Button
           text="View subscriptions"
           onPress={() => goToSpot(company._id)}
+          textStyle={{ fontSize: 14 }}
+          buttonStyle={{ height: 37 }}
         />
       </View>
     </View>
