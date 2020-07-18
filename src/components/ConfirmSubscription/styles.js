@@ -25,4 +25,10 @@ export default StyleSheet.create({
     marginTop: 25,
     alignItems:'center',
   },
+  freeText: {
+    paddingHorizontal: 15,
+    color: colors.main,
+    fontStyle: 'italic',
+    marginTop: 15,
+  }
 });

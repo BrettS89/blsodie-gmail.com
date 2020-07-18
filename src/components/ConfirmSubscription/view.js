@@ -3,7 +3,17 @@ import { SafeAreaView, View, Text, Image } from 'react-native';
 import styles from './styles';
 import Button from '../../shared/components/Button';
 
-const ConfirmView = ({ subscription, subscription: { company }, subscribe }) => {
+const ConfirmView = ({ subscription, subscription: { company }, subscribe, firstSubscription }) => {
+  function renderFreeSubscription() {
+    if (firstSubscription) {
+      return (
+        <Text style={styles.freeText}>
+          The first {subscription.billingFrequency} of this subscription is free. You can cancel this subscription at any time before the next billing cycle.
+        </Text>
+      );
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.content}>
@@ -21,6 +31,7 @@ const ConfirmView = ({ subscription, subscription: { company }, subscribe }) => 
         <Text style={styles.text}>
           ${subscription.price} / {subscription.billingFrequency}
         </Text>
+        {renderFreeSubscription()}
       </View>
       <View style={styles.buttonContainer}>
         <Button

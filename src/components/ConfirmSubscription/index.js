@@ -7,6 +7,7 @@ import { SUBSCRIBE } from '../../redux/actions';
 const ConfirmSubscription = props => {
   const dispatch = useDispatch();
   const subscription = useSelector(state => state.subscription.subscription);
+  const firstSubscription = useSelector(state => state.user.userData.firstSubscription);
   let backHandler = null;
 
   useEffect(() => {
@@ -38,6 +39,7 @@ const ConfirmSubscription = props => {
       <ConfirmSubscriptionView
         subscription={subscription}
         subscribe={subscribe}
+        firstSubscription={firstSubscription}
       />
     )
     : <View />

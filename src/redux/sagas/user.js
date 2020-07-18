@@ -36,8 +36,11 @@ function * logoutWatcher() {
 }
 
 function * isLoggedInHandler({ payload }) {
+  const freeBanner = yield AsyncStorage.getItem('showFreeBanner');
+  const freeBannerLocalStorage = freeBanner === 'false';
+  console.log(freeBannerLocalStorage);
   try {
-    const { user } = yield call(api.isLoggedIn);
+    var { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });
     yield put({ type: actions.GET_CREDITS });
     const { locations } = yield call(api.getSpots, {});
@@ -45,10 +48,17 @@ function * isLoggedInHandler({ payload }) {
     payload('success');
   } catch(e) {
     payload('failure');
-    yield AsyncStorage.clear();
+    yield AsyncStorage.removeItem('token');
+    user = { firstSubscription: true };
     const { locations } = yield call(api.getSpots, {});
     yield put({ type: actions.SET_SPOTS, payload: locations });
     console.log('isLoggedInHandler error', e);
+  }
+  const hideFreeBanner = freeBannerLocalStorage || !user.firstSubscription;
+  if (hideFreeBanner) {
+    yield put({ type: actions.CLOSE_FREE_BANNER }); 
+  } else {
+    yield put({ type: actions.SHOW_FREE_BANNER });
   }
 }
 
@@ -81,7 +91,15 @@ function * loginHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.APP_IS_LOADING });
     yield put({ type: actions.SET_LOGIN_ERROR, payload: null });
     const { token, user } = yield call(api.login, form);
-    AsyncStorage.setItem('token', token);
+    const freeBanner = yield AsyncStorage.getItem('showFreeBanner');
+    const freeBannerLocalStorage = freeBanner === 'false';
+    const hideFreeBanner = freeBannerLocalStorage || !user.firstSubscription;
+    if (hideFreeBanner) {
+      yield put({ type: actions.CLOSE_FREE_BANNER }); 
+    } else {
+      yield put({ type: actions.SHOW_FREE_BANNER });
+    }
+    yield AsyncStorage.setItem('token', token);
     yield put({ type: actions.GET_CREDITS });
     yield put({ type: actions.SET_USER_DATA, payload: user });
     const { locations } = yield call(api.getSpots, {});
