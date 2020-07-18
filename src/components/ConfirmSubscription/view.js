@@ -29,7 +29,7 @@ const ConfirmView = ({ subscription, subscription: { company }, subscribe, first
           {subscription.name} subscription
         </Text>
         <Text style={styles.text}>
-          ${subscription.price} / {subscription.billingFrequency}
+          ${subscription.price.toFixed(2)} / {subscription.billingFrequency}
         </Text>
         {renderFreeSubscription()}
       </View>

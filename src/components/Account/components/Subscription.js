@@ -18,7 +18,7 @@ const Subscription = ({ sub, sub: { _id, company, subscription }, openModal }) =
         {company.name} {subscription.name}
       </Text>
       <Text style={styles.subText}>
-        ${subscription.price} / {subscription.billingFrequency}
+        ${subscription.price.toFixed(2)} / {subscription.billingFrequency}
       </Text>
       <Text style={styles.subText}>
         {billMessage}

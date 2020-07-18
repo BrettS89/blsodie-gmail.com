@@ -37,7 +37,7 @@ const Subscription = ({ sub, selectSubscription }) => {
           {sub.name}
         </Text>
         <Text style={styles.subTitleText}>
-          ${sub.price} per {sub.billingFrequency}
+          ${sub.price.toFixed(2)} per {sub.billingFrequency}
         </Text>
       </View>
       <View style={styles.items}>
