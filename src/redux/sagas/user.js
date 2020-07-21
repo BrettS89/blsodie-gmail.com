@@ -38,7 +38,6 @@ function * logoutWatcher() {
 function * isLoggedInHandler({ payload }) {
   const freeBanner = yield AsyncStorage.getItem('showFreeBanner');
   const freeBannerLocalStorage = freeBanner === 'false';
-  console.log(freeBannerLocalStorage);
   try {
     var { user } = yield call(api.isLoggedIn);
     yield put({ type: actions.SET_USER_DATA, payload: user });

@@ -79,7 +79,7 @@ const mainNav = createBottomTabNavigator({
       title: 'My Subscriptions',
       activeTintColor: Colors.main,
       tabBarIcon: ({ tintColor }) => (
-        <Icon name="store" size={20} color={tintColor}/>
+        <Icon name="tag" size={21} color={tintColor}/>
       )
     }
   },

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const FreeBannerView = ({ closeFreeBanner }) => {
   return (
@@ -9,9 +10,10 @@ const FreeBannerView = ({ closeFreeBanner }) => {
         The first week/month of your first subscription is on us!
       </Text>
       <TouchableOpacity onPress={closeFreeBanner}>
-        <Text style={styles.text}>
+        <Icon name="close" size={16} color="#fff" />
+        {/* <Text style={styles.text}>
           x
-        </Text>
+        </Text> */}
       </TouchableOpacity>
     </View>
   );
