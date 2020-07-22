@@ -31,6 +31,7 @@ import AddCreditCard from '../components/AddCreditcard';
 import Legal from '../components/Legal';
 import TermsAndConditions from '../components/TermsAndConditions';
 import PrivacyPolicy from '../components/PrivacyPolicy';
+import PhoneInput from '../components/PhoneInput';
 
 // Auth nav
 import Auth from '../components/Auth';
@@ -196,6 +197,22 @@ const noBottomNav = createBottomTabNavigator({
     }),
     navigationOptions: {
       // title: 'TnC',
+    }
+  },
+  PhoneInput: {
+    screen: createStackNavigator({
+      PhoneInput: {
+        screen: PhoneInput,
+        title: 'PhoneInput',
+        navigationOptions: {
+          // headerLeft: () => <HeaderBack screen={'Spot'} />,
+          headerRight: () => <View><Text>skip</Text></View>,
+          headerTitle: () => <View><Text style={screenTitleStyle.text}>Phone Verification</Text></View>,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'PhoneInput',
     }
   },
 },

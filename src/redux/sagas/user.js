@@ -63,7 +63,7 @@ function * isLoggedInHandler({ payload }) {
 
 function * registerHandler({ payload: { form, navigate } }) {
   try {
-    let screen = 'Spots';
+    let screen = 'PhoneInput';
     yield put({ type: actions.APP_IS_LOADING });
     yield put({ type: actions.SET_REGISTRATION_ERROR, payload: null });
     const { token, user } = yield call(api.register, form);
