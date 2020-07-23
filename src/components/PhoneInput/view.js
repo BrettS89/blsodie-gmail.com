@@ -17,6 +17,7 @@ const PhoneInputView = ({ pressHandler, onTextChange }) => {
             type="number"
             newStyles={{ fontSize: 24, textAlign: 'center', justifyContent: 'center', alignItems: 'center' }}
             onChangeText={onTextChange}
+            onSubmitHandler={pressHandler}
           />
         </View>
 

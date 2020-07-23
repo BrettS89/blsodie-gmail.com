@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { View, TextInput } from 'react-native';
 import styles from './styles';
 import { verifyToken } from '../../lib/api';
@@ -8,13 +8,20 @@ import alert from '../../utils/alert';
 
 const Activate = props => {
   const dispatch = useDispatch();
+  const app = useSelector(state => state.app);
+  const spotId = useSelector(state => state.spots.spotId);
+  const subscription = useSelector(state => state.subscription.subscription);
+  let screen = 'Spots';
+  if (spotId && app.navToSpot) screen = 'Spot';
+  if (subscription) screen = 'ConfirmSubscription';
+
   const [token, setToken] = useState('');
   const inputArr = [];
   for (let i = 0; i < 6; i++) inputArr.push(useRef());
 
   useEffect(() => {
-    inputArr[0].current.focus();
-    inputArr[0].current.blur();
+    // inputArr[0].current.focus();
+    // inputArr[0].current.blur();
 
     setTimeout(() => {
       inputArr[0].current.focus();
@@ -56,7 +63,7 @@ const Activate = props => {
       try {
         const { user } = await verifyToken({ token: tok });
         dispatch({ type: SET_USER_DATA, payload: user });
-        props.navigation.navigate('Spots');
+        props.navigation.navigate(screen);
       } catch(e) {
         alert('Error', e.message);
       }

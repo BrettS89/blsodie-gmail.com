@@ -6,7 +6,7 @@ import { ON_REGISTER } from '../../redux/actions';
 const Register = props => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
 

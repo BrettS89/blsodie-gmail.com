@@ -46,13 +46,10 @@ function * isLoggedInHandler({ payload }) {
     yield put({ type: actions.SET_SPOTS, payload: locations });
     payload('success');
   } catch(e) {
-    console.log('innnnn');
     payload('failure');
     yield AsyncStorage.removeItem('token');
     user = { firstSubscription: true };
-    console.log('inn again');
-    const { locations } = yield call(api.getSpots, {});
-    
+    const { locations } = yield call(api.getSpots, {});    
     yield put({ type: actions.SET_SPOTS, payload: locations });
     console.log('isLoggedInHandler error', e);
   }
@@ -77,9 +74,9 @@ function * registerHandler({ payload: { form, navigate } }) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     const spotId = yield select(spotIdState);
     const app = yield select(appState);
-    if (spotId && app.navToSpot) screen = 'Spot';
+    // if (spotId && app.navToSpot) screen = 'Spot';
     navigate(screen);
-    yield put({ type: actions.SET_NAV_TO_SPOT, payload: false });
+    // yield put({ type: actions.SET_NAV_TO_SPOT, payload: false });
   } catch(e) {
     yield put({ type: actions.APP_IS_NOT_LOADING });
     yield put({ type: actions.SET_REGISTRATION_ERROR, payload: e.message });
