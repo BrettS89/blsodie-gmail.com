@@ -160,3 +160,17 @@ export async function sendToken(body) {
   errorThrower(res, response);
   return response.data;
 }
+
+export async function verifyToken(body) {
+  const res = await fetch(`${URI}/user/verifytoken`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': await getToken(),
+    },
+    body: JSON.stringify(body),
+  });
+  const response = await res.json();
+  errorThrower(res, response);
+  return response.data;
+}

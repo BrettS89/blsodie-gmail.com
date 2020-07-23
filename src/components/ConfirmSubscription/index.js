@@ -7,7 +7,9 @@ import { SUBSCRIBE } from '../../redux/actions';
 const ConfirmSubscription = props => {
   const dispatch = useDispatch();
   const subscription = useSelector(state => state.subscription.subscription);
-  const firstSubscription = useSelector(state => state.user.userData.firstSubscription);
+  const user = useSelector(state => state.user.userData);
+  const userActivated = user.activated;
+  const firstSubscription = user.firstSubscription;
   let backHandler = null;
 
   useEffect(() => {
@@ -34,12 +36,18 @@ const ConfirmSubscription = props => {
     props.navigation.navigate('Subscriptions');
   }
 
+  function verifyMobileNumber() {
+    props.navigation.navigate('PhoneInput');
+  }
+
   return subscription
     ? (
       <ConfirmSubscriptionView
         subscription={subscription}
         subscribe={subscribe}
         firstSubscription={firstSubscription}
+        userActivated={userActivated}
+        verifyMobileNumber={verifyMobileNumber}
       />
     )
     : <View />

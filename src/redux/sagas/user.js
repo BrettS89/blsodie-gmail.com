@@ -46,10 +46,13 @@ function * isLoggedInHandler({ payload }) {
     yield put({ type: actions.SET_SPOTS, payload: locations });
     payload('success');
   } catch(e) {
+    console.log('innnnn');
     payload('failure');
     yield AsyncStorage.removeItem('token');
     user = { firstSubscription: true };
+    console.log('inn again');
     const { locations } = yield call(api.getSpots, {});
+    
     yield put({ type: actions.SET_SPOTS, payload: locations });
     console.log('isLoggedInHandler error', e);
   }

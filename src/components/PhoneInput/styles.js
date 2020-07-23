@@ -11,5 +11,5 @@ export default StyleSheet.create({
     marginVertical: 40,
     fontSize: 18,
     fontWeight: '600'
-  }
+  },
 });

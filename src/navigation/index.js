@@ -16,6 +16,7 @@ import LocationSearch from '../shared/components/LocationSearch';
 // Logo
 import Logo from '../shared/components/Logo';
 import HeaderBack from '../shared/components/HeaderBack';
+import HeaderSkip from '../shared/components/HeaderSkip';
 
 // Main nav
 import Spots from '../components/Spots';
@@ -32,6 +33,7 @@ import Legal from '../components/Legal';
 import TermsAndConditions from '../components/TermsAndConditions';
 import PrivacyPolicy from '../components/PrivacyPolicy';
 import PhoneInput from '../components/PhoneInput';
+import Activate from '../components/Activate';
 
 // Auth nav
 import Auth from '../components/Auth';
@@ -206,13 +208,29 @@ const noBottomNav = createBottomTabNavigator({
         title: 'PhoneInput',
         navigationOptions: {
           // headerLeft: () => <HeaderBack screen={'Spot'} />,
-          headerRight: () => <View><Text>skip</Text></View>,
+          headerRight: () => <HeaderSkip screen='Spots' />,
           headerTitle: () => <View><Text style={screenTitleStyle.text}>Phone Verification</Text></View>,
         },
       },
     }),
     navigationOptions: {
       title: 'PhoneInput',
+    }
+  },
+  Activate: {
+    screen: createStackNavigator({
+      Activate: {
+        screen: Activate,
+        title: 'Activate',
+        navigationOptions: {
+          // headerLeft: () => <HeaderBack screen={'Spot'} />,
+          headerRight: () => <HeaderSkip screen='Spots' />,
+          headerTitle: () => <View><Text style={screenTitleStyle.text}>Confirm Verification Code</Text></View>,
+        },
+      },
+    }),
+    navigationOptions: {
+      title: 'Activate',
     }
   },
 },

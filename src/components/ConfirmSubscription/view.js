@@ -1,16 +1,29 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Image } from 'react-native';
+import { SafeAreaView, View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Button from '../../shared/components/Button';
 
-const ConfirmView = ({ subscription, subscription: { company }, subscribe, firstSubscription }) => {
+const ConfirmView = ({ subscription, subscription: { company }, subscribe, firstSubscription, userActivated, verifyMobileNumber }) => {
   function renderFreeSubscription() {
-    if (firstSubscription) {
+    if (firstSubscription && userActivated) {
       return (
         <Text style={styles.freeText}>
           The first {subscription.billingFrequency} of this subscription is free. You can cancel this subscription at any time before the next billing cycle.
         </Text>
       );
+    } else if (firstSubscription && !userActivated) {
+      return (
+        <View style={{ alignItems: 'center' }}>
+          <Text style={styles.freeText}>
+            The first {subscription.billingFrequency} of this subscription will be free if you verify your mobile number before confirming your subscription.
+          </Text>
+          <TouchableOpacity style={styles.verifyButton} onPress={verifyMobileNumber}>
+            <Text style={styles.verifyText}>
+              Verify mobile number
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )
     }
   }
 

@@ -30,5 +30,13 @@ export default StyleSheet.create({
     color: colors.main,
     fontStyle: 'italic',
     marginTop: 15,
+  },
+  verifyButton: {
+    marginTop: 25,
+    marginBottom: 5
+  },
+  verifyText: {
+    color: colors.main,
+    fontWeight: '700',
   }
 });

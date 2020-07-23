@@ -7,7 +7,9 @@ import colors from '../styles/colors';
 const HeaderBack = ({ navigation, screen }) => {
   return (
     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(screen)}>
-      <Back name="md-arrow-back" size={30} color={colors.main} />
+      <Text style={styles.text}>
+        Skip
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -15,6 +17,10 @@ const HeaderBack = ({ navigation, screen }) => {
 const styles = StyleSheet.create({
   button: {
     paddingHorizontal: 15,
+  },
+  text: {
+    fontWeight: '700',
+    color: colors.main,
   }
 });
 

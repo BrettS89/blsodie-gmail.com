@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import View from './view';
 import { sendToken } from '../../lib/api';
+import alert from '../../utils/alert';
 
 const PhoneInput = props => {
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -10,8 +11,12 @@ const PhoneInput = props => {
   }
 
   async function pressHandler() {
-    const res = await sendToken({ phoneNumber });
-    console.log(res);
+    try {
+      await sendToken({ phoneNumber });
+      props.navigation.navigate('Activate');
+    } catch(e) {
+      alert('Error', e.message);
+    }
   }
 
   return (
